@@ -1,0 +1,91 @@
+////
+/// 与色彩相关的scss文件
+/// @group color
+////
+
+// @import './variable.scss';
+// @import './common.scss';
+
+/// 获取**字体**颜色
+/// - `brand`(#FF6900)、`brand-dark`(#ff6900)、`primary`(#191919)、`secondary`(#666666)、`assist`(#999999)、`disable(#cccccc)`、`black`(#000000)、`white`(白色文字)
+/// @param {"brand"｜"brand-dark"|"primary"|"secondary"|"assist"|"disable"|"black"|"white"} $color-key - 颜色对应key值
+/// @return {Color} - `$color-key`对应颜色值
+/// @throw `$color-key` is not valid
+/// @example scss - Get primary font color
+///   color: get-font-color("brand");
+///   // color : #FF6900;
+///
+/// @access public
+@function get-font-color($color-key) {
+  $font-color-map: ('color333': $color333,
+  'brand':$mall-color-brand,
+  'brand-dark': $mall-color-brand-dark,
+  'primary':$mall-color-primary,
+  'secondary':$mall-color-font-secondary,
+  'assist':$mall-color-font-assist,
+  'disable': $mall-color-font-disable,
+  'black': $mall-color-black,
+  'white':$mall-color-white,
+  'danger':$mall-color-error);
+
+  @return _get-safe-map-value($font-color-map, $color-key);
+}
+
+/// 获取**基础**颜色
+/// - `brand`(主题色背景色)、`brand-dark`(#d95300)、`primary`(状态栏背景色)、`secondary`(购物车无商品时背景色)、`assist`(输入框颜色)、`disable`(#F5F5F5)、`interact`(分割线颜色)、`gray-lighter`（）、`gold-light`（黑色背景色）、`black`（黑色背景色）、`white`(白色背景色)
+/// @param {"brand"|"brand-dark"|"primary"|"secondary"|"assist"|"disable"｜"interact"|"gray-lighter"|"gold-light"|"black"|"white"} $color-key - 颜色对应key值
+/// @return {Color} - `$color-key`对应颜色值
+/// @throw `$color-key` is not valid
+/// @example scss - Get background base color
+///   background-color: get-base-color("brand");
+///
+///   // background-color : #FF6900;
+///
+/// @access public
+@function get-base-color($color-key) {
+  $font-color-map: ('color456': $mall-color-456,
+ 'color789': $mall-color-789,
+  'brand':$mall-color-brand,
+  'brand-dark': $mall-color-brand-dark,
+  'primary':$mall-color-primary,
+  'secondary':$mall-color-base-secondary,
+  'assist':$mall-color-base-assist,
+  'disable':$mall-color-base-disable,
+  'interact':$mall-color-base-interact,
+  'gray-lighter': $mall-color-base-gray-lighter,
+  'gold-light': $mall-color-base-gold-light,
+  'black': $mall-color-black,
+  'white':$mall-color-white);
+
+  @return _get-safe-map-value($font-color-map, $color-key);
+}
+
+/// 获取**状态**颜色
+/// - `error`(错误色)、`warn`(警告色)、`success`(成功色)
+/// - 函数会根据是否获取浅色自动在`$color-key`后方拼接"-light"以获取不同值
+/// @param {"error"|"warn"|"assist"|"success"} $color-key - 颜色对应key值
+/// @param {Boolean} $is-light [false] - 是否获取对应颜色的浅色系
+/// @return {Color} - `$color-key`对应颜色值
+/// @throw `$color-key` is not valid
+/// @example scss - Get light error color
+///   background-color: get-status-color("error",true);
+///
+///   // background-color : #FDE2E2;
+///
+/// @access public
+@function get-status-color($color-key, $is-light:false) {
+  $font-color-map: ('error':$mall-color-error,
+  'error-light':$mall-color-error-light,
+  'warn':$mall-color-warn,
+  'warn-light': $mall-color-warn-light,
+  'success':$mall-color-success,
+  'success-light': $mall-color-success-light);
+  $real-key: $color-key;
+
+  // 对浅色系做key拼接处理
+  @if $is-light {
+    $real-key: $real-key + '-light';
+  }
+
+  @return _get-safe-map-value($font-color-map, $real-key);
+}
