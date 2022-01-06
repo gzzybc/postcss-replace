@@ -22,7 +22,6 @@ try {
     if (config.errorPath === '.' || !config.errorPath) {
         config.errorPath = 'node_modules/.scss-replace-error'
     }
-    console.log(config.errorPath);
     /**
     * 处理新变量
     */

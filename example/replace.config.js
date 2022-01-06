@@ -1,67 +1,47 @@
 module.exports = {
   rule: {
+    /**
+     * 规则读取
+     * 新增的函数变量 会插入到rule相应的文件中
+     */
     from: './rule',
     transform: {
-      'get-animation-time': ['animation-time'],
       'get-font-color': {
         attr: ['color'],
         argument: {
-          color333: '$color333'
+          red: '$red'
         }
       },
-      'get-base-color': {
-        attr: ['border-color', 'border', 'background', 'background-color'],
-        argument: {
-          color456: '$mall-color-456',
-          color789: '$mall-color-789'
-        }
-      },
-      'get-status-color': ['get-status-color'],
-      'get-font-size': {
-        attr: ['font-size'],
-        argument: {
-          // 参数名称  变量名称
-          fontSize100: '$font-size-100'
-        }
-      },
-      'get-z-index': ['z-index']
     },
-    variableFile: '2.scss',
+    /**
+     * 新增变量的文件地址
+     */
+    variableFile: 'newFile.scss',
     /**
      * 是否以变量形式替换
      */
     isReplaceVariable: true,
+    /**
+     * 替换的变量名
+     */
     variable: {
-      $index: 100,
-      $red: 'red',
-      '$mall-color-456': '#456',
-      '$font-size-100': '100px',
-      $color333: '#333'
+      $red: 'red'
     }
   },
+  /**
+   * 需要转换的文件
+   */
   target: {
     from: './style',
+    /**
+     * 新文件输出
+     * 不配置会覆盖源文件（一般不需要配置）
+     */
     to: '../dist'
   },
   /**
    * 错误日志地址 默认 node_modules/.scss-replace-error
    */
-  errorPath: '.'
+  errorPath: 'error'
 }
 
-// other.scss
-
-/**
- * new file
- *  other.scss
- * $mall-color-456: "#456" !default,
- * source
- * .demo{ background-color: #456;}
- * target
- * .demo{ background-color: get-base-color($color456);}
- * isReplaceVariable: true,
- * .demo{color: red}
- * target 
- * .demo
- *
- */
