@@ -30,7 +30,7 @@ module.exports = {
     /**
      * 是否以变量形式替换
      */
-    isReplaceVariable: false,
+    isReplaceVariable: true,
     variable: {
       $index: 100,
       $red: 'red',
@@ -41,7 +41,7 @@ module.exports = {
   },
   target: {
     from: './style',
-    to: './dist'
+    to: '../dist'
   },
   /**
    * 错误日志地址 默认 node_modules/.scss-replace-error
