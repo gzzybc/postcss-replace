@@ -1,6 +1,6 @@
 {
   "name": "scss-replace",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "scss 替换关键key",
   "keywords": [
     "postcss",

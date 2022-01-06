@@ -1,4 +1,4 @@
-# postcss-replace
+# scss-replace
 
 
 这是一个可以简单生成和替换scss变量的脚本.
