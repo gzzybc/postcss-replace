@@ -1,12 +1,10 @@
 {
-  "name": "postcss-replace",
-  "version": "0.0.0",
-  "description": "PostCSS plugin 替换关键key",
+  "name": "scss-replace",
+  "version": "0.0.1",
+  "description": "scss 替换关键key",
   "keywords": [
     "postcss",
-    "css",
-    "postcss-plugin",
-    "postcss-replace-key"
+    "scss"
   ],
   "scripts": {
     "dev": "node lib.js ./example/replace.config.js",
@@ -17,7 +15,7 @@
   },
   "author": "",
   "license": "MIT",
-  "repository": "https://github.com/gzzybc/postcss-replace.git",
+  "repository": "https://github.com/gzzybc/scss-replace.git",
   "engines": {
     "node": ">=12.0.0"
   },
