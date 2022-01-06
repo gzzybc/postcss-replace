@@ -50,6 +50,8 @@ try {
     }), {
         variable
     })
+
+    console.log('replace Completed');
 } catch (e) {
     console.log(e);
     console.log(`请添加配置文件replace.config.js`);
