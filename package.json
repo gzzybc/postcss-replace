@@ -9,6 +9,7 @@
     "postcss-replace-key"
   ],
   "scripts": {
+    "dev": "node lib.js ./example/replace.config.js",
     "test": "jest --coverage && eslint ."
   },
   "bin": {

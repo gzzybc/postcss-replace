@@ -1,6 +1,6 @@
 module.exports = {
   rule: {
-    from: './example/rule',
+    from: './rule',
     transform: {
       'get-animation-time': ['animation-time'],
       'get-font-color': {
@@ -40,8 +40,8 @@ module.exports = {
     }
   },
   target: {
-    from: './example/style',
-    to: './example/dist'
+    from: './style',
+    to: './dist'
   },
   /**
    * 错误日志地址 默认 node_modules/.scss-replace-error
@@ -59,5 +59,9 @@ module.exports = {
  * .demo{ background-color: #456;}
  * target
  * .demo{ background-color: get-base-color($color456);}
+ * isReplaceVariable: true,
+ * .demo{color: red}
+ * target 
+ * .demo
  *
  */

@@ -1,8 +1,12 @@
 # postcss-replace
 
 
-[PostCSS] plugin 替换关键key.
-执行脚本 node lib.js
+这是一个可以简单生成和替换scss变量的脚本.
+
+## Usage
+
+  - npx scss-replace
+ 
 
 <!-- [PostCSS]: https://github.com/postcss/postcss
 
