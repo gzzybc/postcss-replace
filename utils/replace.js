@@ -4,6 +4,7 @@ const postcssScss = require('postcss-scss')
 const plugin = require('../index.js')
 const Path = require("path");
 const postcss = require("postcss");
+const picocolors = require('picocolors')
 
 const replace = (config, {
     variable,
@@ -27,7 +28,11 @@ const replace = (config, {
             })
             if (error.length > 0) {
                 error.unshift(file.path + '\n')
-                writeFileSync(Path.join(config.configPath, config.errorPath, p), file.filename, error.join(''))
+                const outPath = Path.join(config.configPath, config.errorPath)
+                console.log('\n 替换失败文件地址->');
+                console.log(picocolors.red(outPath));
+                console.log();
+                writeFileSync(Path.join(outPath, p), file.filename, error.join(''))
             }
         }
     } catch (error) {

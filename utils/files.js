@@ -1,5 +1,6 @@
 const Path = require("path");
 const fs = require('fs')
+const picocolors = require('picocolors')
 /**
  * 获取文件夹下所有文件路径
  * @returns
@@ -61,5 +62,6 @@ module.exports = {
     writeFileSync,
     fs,
     Path,
-    BASE_VARIABLE
+    BASE_VARIABLE,
+    picocolors
 }

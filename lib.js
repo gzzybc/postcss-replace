@@ -1,9 +1,10 @@
 #!/usr/bin/env node
+const picocolors = require('picocolors')
 
 try {
     const { Path } = require("./utils/files");
     const args = process.argv.slice(2)
-    let relative = 'replace.config.js'
+    let relative = './example/replace.config.js'
     if (args.length>0) {
         relative = args[0]
     }
@@ -18,9 +19,10 @@ try {
 
     /**
      * config.errorPath === '.' 会覆盖原始文件
+     * 默认会生成跟配置文件同一个目录下
      */
     if (config.errorPath === '.' || !config.errorPath) {
-        config.errorPath = 'node_modules/.scss-replace-error'
+        config.errorPath = '.scss-replace-error'
     }
     /**
     * 处理新变量
@@ -51,9 +53,10 @@ try {
         variable
     })
 
-    console.log('replace Completed');
+    console.log(picocolors.green('\n replace Completed'));
 } catch (e) {
-    console.log(e);
-    console.log(`请添加配置文件replace.config.js`);
+    console.log();
+    console.log(picocolors.red(`请添加配置文件replace.config.js`))
+    console.log();
 }
 

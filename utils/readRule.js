@@ -1,4 +1,5 @@
 const { fs, writeFileSync, readDirSync, BASE_VARIABLE } = require("./files");
+const picocolors = require('picocolors')
 
 const postcssScss = require("postcss-scss");
 const plugin = require("../index.js");
@@ -66,11 +67,12 @@ const getRule = (config) => {
                 });
             if (error.length > 0) {
                 const p = Path.relative(config.configPath, file.dirPath);
-                writeFileSync(
-                    Path.join(config.configPath, config.errorPath, p),
-                    file.filename,
-                    error.join("")
-                );
+
+                const outPath = Path.join(config.configPath, config.errorPath)
+                console.log('\n 规则获取失败文件地址->');
+                console.log(picocolors.red(outPath));
+                console.log();
+                writeFileSync(Path.join(outPath, p), file.filename, error.join(''))
             }
         }
         // eslint-disable-next-line no-unused-vars

@@ -12,6 +12,7 @@ module.exports = {
           red: '$red'
         }
       },
+      'get-base-color': ['background']
     },
     /**
      * 新增变量的文件地址
@@ -40,8 +41,9 @@ module.exports = {
     to: '../dist'
   },
   /**
-   * 错误日志地址 默认 node_modules/.scss-replace-error
+   * 错误日志地址 默认 .scss-replace-error
+   * 以配置文件 为相同目录
    */
-  errorPath: 'error'
+  // errorPath: 'error'
 }
 
