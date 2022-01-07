@@ -4,7 +4,7 @@ const picocolors = require('picocolors')
 try {
     const { Path } = require("./utils/files");
     const args = process.argv.slice(2)
-    let relative = './example/replace.config.js'
+    let relative = './replace.config.js'
     if (args.length>0) {
         relative = args[0]
     }
